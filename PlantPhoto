@@ -1,0 +1,59 @@
+{
+  "name": "PlantPhoto",
+  "type": "object",
+  "properties": {
+    "plant_id": {
+      "type": "string",
+      "description": "ID della pianta"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "URL della foto"
+    },
+    "day_number": {
+      "type": "number",
+      "description": "Giorno di coltivazione"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "seedling",
+        "vegetative",
+        "flowering",
+        "harvesting",
+        "drying",
+        "curing"
+      ],
+      "description": "Fase di coltivazione"
+    },
+    "photo_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "photo_time": {
+      "type": "string",
+      "description": "Orario HH:MM"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "plant_id",
+    "photo_url"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
