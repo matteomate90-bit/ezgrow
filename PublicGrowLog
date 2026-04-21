@@ -1,0 +1,59 @@
+{
+  "name": "PublicGrowLog",
+  "type": "object",
+  "properties": {
+    "author_alias": {
+      "type": "string",
+      "description": "Nome alias anonimo del coltivatore"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titolo del log pubblico"
+    },
+    "content": {
+      "type": "string",
+      "description": "Contenuto del post"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Foto allegata"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "seedling",
+        "vegetative",
+        "flowering",
+        "harvesting",
+        "drying",
+        "curing"
+      ],
+      "description": "Fase di coltivazione"
+    },
+    "strain_type": {
+      "type": "string",
+      "enum": [
+        "fotoperiodica",
+        "autofiorente",
+        "unknown"
+      ]
+    },
+    "genetics": {
+      "type": "string",
+      "description": "Strain/genetica (opzionale)"
+    },
+    "medium": {
+      "type": "string",
+      "description": "Substrato"
+    },
+    "day_number": {
+      "type": "number",
+      "description": "Giorno di coltivazione"
+    },
+    "technique_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tecniche usate (LST, SCROG, ecc.)"
+ 
