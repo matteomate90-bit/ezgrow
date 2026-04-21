@@ -1,0 +1,58 @@
+{
+  "name": "EnvironmentLog",
+  "type": "object",
+  "properties": {
+    "grow_room_id": {
+      "type": "string",
+      "description": "Associated GrowRoom ID"
+    },
+    "plant_id": {
+      "type": "string",
+      "description": "Associated plant ID (legacy)"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Temperature in \u00b0F"
+    },
+    "humidity": {
+      "type": "number",
+      "description": "Relative humidity %"
+    },
+    "ph": {
+      "type": "number",
+      "description": "pH level"
+    },
+    "light_hours": {
+      "type": "number",
+      "description": "Hours of light per day"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "log_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "log_time": {
+      "type": "string",
+      "description": "Time of measurement HH:MM"
+    }
+  },
+  "required": [
+    "log_date"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
