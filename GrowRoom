@@ -1,0 +1,96 @@
+{
+  "name": "GrowRoom",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome della grow room"
+    },
+    "layout": {
+      "type": "string",
+      "enum": [
+        "custom",
+        "1x2",
+        "2x2",
+        "3x3"
+      ],
+      "default": "2x2",
+      "description": "Layout predefinito o personalizzato"
+    },
+    "custom_cols": {
+      "type": "number",
+      "description": "Numero colonne (layout custom)"
+    },
+    "custom_rows": {
+      "type": "number",
+      "description": "Numero righe (layout custom)"
+    },
+    "width_cm": {
+      "type": "number",
+      "description": "Larghezza grow box in cm"
+    },
+    "depth_cm": {
+      "type": "number",
+      "description": "Profondit\u00e0 grow box in cm"
+    },
+    "height_cm": {
+      "type": "number",
+      "description": "Altezza grow box in cm"
+    },
+    "max_plants": {
+      "type": "number",
+      "description": "Numero massimo di piante"
+    },
+    "light_watt": {
+      "type": "number",
+      "description": "Potenza illuminazione in Watt"
+    },
+    "light_type": {
+      "type": "string",
+      "enum": [
+        "led",
+        "hps",
+        "cmh",
+        "t5",
+        "other"
+      ],
+      "description": "Tipo di lampada"
+    },
+    "light_hours_per_day": {
+      "type": "number",
+      "description": "Ore di luce al giorno"
+    },
+    "appliances": {
+      "type": "array",
+      "description": "Altri strumenti: [{name, watt, hours_per_day}]",
+      "items": {
+        "type": "object"
+      }
+    },
+    "kwh_cost": {
+      "type": "number",
+      "description": "Costo kWh in euro (default media nazionale)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Note libere sulla grow room"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

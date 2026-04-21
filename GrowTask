@@ -1,0 +1,55 @@
+{
+  "name": "GrowTask",
+  "type": "object",
+  "properties": {
+    "plant_id": {
+      "type": "string",
+      "description": "Associated plant ID"
+    },
+    "title": {
+      "type": "string",
+      "description": "Task title"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "water",
+        "feed",
+        "prune",
+        "transplant",
+        "inspect",
+        "harvest",
+        "other"
+      ],
+      "description": "Type of task"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

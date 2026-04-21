@@ -1,0 +1,39 @@
+{
+  "name": "GrowComment",
+  "type": "object",
+  "properties": {
+    "log_id": {
+      "type": "string",
+      "description": "ID del PublicGrowLog"
+    },
+    "author_alias": {
+      "type": "string",
+      "description": "Alias anonimo dell'autore"
+    },
+    "content": {
+      "type": "string",
+      "description": "Testo del commento"
+    },
+    "entry_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "log_id",
+    "content",
+    "entry_date"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {},
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

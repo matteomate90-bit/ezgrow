@@ -1,0 +1,119 @@
+{
+  "name": "Plant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the plant"
+    },
+    "strain_type": {
+      "type": "string",
+      "enum": [
+        "fotoperiodica",
+        "autofiorente"
+      ],
+      "description": "Tipo di pianta"
+    },
+    "genetics": {
+      "type": "string",
+      "description": "Nome genetica/strain"
+    },
+    "seed_bank": {
+      "type": "string",
+      "description": "Banca semi produttrice"
+    },
+    "genetics_info": {
+      "type": "object",
+      "description": "Dati di coltivazione recuperati automaticamente"
+    },
+    "flowering_days_manual": {
+      "type": "number",
+      "description": "Giorni di fioritura impostati manualmente"
+    },
+    "flowering_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di inizio fioritura"
+    },
+    "custom_veg_day": {
+      "type": "number",
+      "description": "Giorno personalizzato inizio vegetativo (default 10)"
+    },
+    "custom_flower_day": {
+      "type": "number",
+      "description": "Giorno personalizzato inizio fioritura autofiorente (default 40)"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "seedling",
+        "vegetative",
+        "flowering",
+        "harvesting",
+        "drying",
+        "curing"
+      ],
+      "default": "seedling",
+      "description": "Current growth stage"
+    },
+    "plant_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the plant was started"
+    },
+    "grow_room_id": {
+      "type": "string",
+      "description": "ID della grow room associata"
+    },
+    "location": {
+      "type": "string",
+      "description": "Posizione nella grow box (es. 2x2-A1)"
+    },
+    "medium": {
+      "type": "string",
+      "enum": [
+        "soil",
+        "coco_coir",
+        "hydroponics",
+        "aeroponics",
+        "dwc",
+        "other"
+      ],
+      "description": "Growing medium"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Latest photo of the plant"
+    },
+    "notes": {
+      "type": "string",
+      "description": "General notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "harvested",
+        "dead"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
